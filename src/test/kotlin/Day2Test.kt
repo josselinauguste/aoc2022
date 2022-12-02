@@ -16,6 +16,20 @@ class Day2Test {
         assertEquals(14297, score)
     }
 
+    @Test
+    fun `total score if everything goes exactly according to the updated strategy guide (sample)`() {
+        val score = calculateScoreForRoundEnd(sampleStrategyGuide)
+
+        assertEquals(12, score)
+    }
+
+    @Test
+    fun `total score if everything goes exactly according to the updated strategy guide`() {
+        val score = calculateScoreForRoundEnd(strategyGuide)
+
+        assertEquals(10498, score)
+    }
+
     private val sampleStrategyGuide = """A Y
 B X
 C Z"""
