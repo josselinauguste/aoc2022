@@ -2,9 +2,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class InventoryTest {
-    @Test
-    fun `how many Calories are being carried by the Elf carrying the most Calories (sample)`() {
-        val inventory = """1000
+    private val sampleInventory = """1000
 2000
 3000
 
@@ -18,15 +16,7 @@ class InventoryTest {
 9000
 
 10000"""
-
-        val result = calculate(inventory)
-
-        assertEquals(24000, result)
-    }
-
-    @Test
-    fun `how many Calories are being carried by the Elf carrying the most Calories`() {
-        val inventory = """2832
+    private val inventory = """2832
 2108
 3082
 4328
@@ -2271,8 +2261,32 @@ class InventoryTest {
 3285
 11468"""
 
-        val result = calculate(inventory)
+    @Test
+    fun `how many Calories are being carried by the Elf carrying the most Calories (sample)`() {
+
+        val result = caloriesOfTheElfCarryingTheMost(sampleInventory)
+
+        assertEquals(24000, result)
+    }
+
+    @Test
+    fun `how many Calories are being carried by the Elf carrying the most Calories`() {
+        val result = caloriesOfTheElfCarryingTheMost(inventory)
 
         assertEquals(67622, result)
+    }
+
+    @Test
+    fun `how many Calories are being carried by the three Elves carrying the most Calories (sample)`() {
+        val result = caloriesOfTheTopElvesCarryingTheMost(sampleInventory, 3)
+
+        assertEquals(45000, result)
+    }
+
+    @Test
+    fun `how many Calories are being carried by the three Elves carrying the most Calories`() {
+        val result = caloriesOfTheTopElvesCarryingTheMost(inventory, 3)
+
+        assertEquals(201491, result)
     }
 }
