@@ -1,7 +1,7 @@
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class InventoryTest {
+class Day1Test {
     private val sampleInventory = """1000
 2000
 3000
