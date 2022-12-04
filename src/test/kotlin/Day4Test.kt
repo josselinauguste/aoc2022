@@ -4,16 +4,30 @@ import kotlin.test.assertEquals
 class Day4Test {
     @Test
     fun `In how many assignment pairs does one range fully contain the other (sample)`() {
-        val number = numberOfOverlappingAssignments(sampleListOfContents)
+        val number = numberOfFullyOverlappingAssignments(sampleListOfContents)
 
         assertEquals(2, number)
     }
 
     @Test
     fun `In how many assignment pairs does one range fully contain the other`() {
-        val number = numberOfOverlappingAssignments(listOfContents)
+        val number = numberOfFullyOverlappingAssignments(listOfContents)
 
         assertEquals(305, number)
+    }
+
+    @Test
+    fun `In how many assignment pairs does one range overlap the other (sample)`() {
+        val number = numberOfOverlappingAssignments(sampleListOfContents)
+
+        assertEquals(4, number)
+    }
+
+    @Test
+    fun `In how many assignment pairs does one range overlap the other`() {
+        val number = numberOfOverlappingAssignments(listOfContents)
+
+        assertEquals(811, number)
     }
 
     private val sampleListOfContents = """2-4,6-8
