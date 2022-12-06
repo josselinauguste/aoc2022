@@ -1,13 +1,16 @@
 import java.util.*
 
-fun cratesOnTopOfStacks(input: String): String {
+fun cratesOnTopOfStacks(input: String, group: Boolean = false): String {
     val (rawStacks, rawProcedure) = input.split("\n\n")
     val stacks = parseStacks(rawStacks)
     val procedure = parseProcedure(rawProcedure)
     for (p in procedure) {
+        val buffer = Stack<Char>()
         for (i in 1..p.first) {
-            stacks[p.third - 1].push(stacks[p.second - 1].pop())
+            buffer.push(stacks[p.second - 1].pop())
         }
+        if (group) buffer.reverse()
+        stacks[p.third - 1].addAll(buffer.toList())
     }
     return stacks.map { s -> s.last() }.joinToString("")
 }

@@ -17,6 +17,20 @@ class Day5Test {
     }
 
     @Test
+    fun `which crate will groupely end up on top of each stack (sample)`() {
+        val result = cratesOnTopOfStacks(sample, true)
+
+        assertEquals("MCD", result)
+    }
+
+    @Test
+    fun `which crate will groupely end up on top of each stack`() {
+        val result = cratesOnTopOfStacks(input, true)
+
+        assertEquals("VRZGHDFBQ", result)
+    }
+
+    @Test
     fun extractStacks() {
         val result = parseStacks(
             """    [D]    
