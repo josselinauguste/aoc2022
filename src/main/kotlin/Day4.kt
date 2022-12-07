@@ -1,10 +1,10 @@
 fun numberOfFullyOverlappingAssignments(assignments: String) =
-    stuff(assignments, ::doesContain)
+    numberOfAssignmentsFullfilingPredicate(assignments, ::doesContain)
 
 fun numberOfOverlappingAssignments(assignments: String) =
-    stuff(assignments, ::doesOverlap)
+    numberOfAssignmentsFullfilingPredicate(assignments, ::doesOverlap)
 
-fun stuff(assignments: String, predicate: (IntRange, IntRange) -> Boolean) =
+private fun numberOfAssignmentsFullfilingPredicate(assignments: String, predicate: (IntRange, IntRange) -> Boolean) =
     assignments.split("\n").map { p -> p.split(",") }
         .map { p -> p.map { a -> a.split("-").map { r -> r.toInt() } } }
         .map { (a1, a2) -> predicate(a1[0]..a1[1], a2[0]..a2[1]) }
